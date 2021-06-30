@@ -1,0 +1,162 @@
+<section>
+		<table  id = "timetable">
+			<tr>
+				<td>
+				table id = "tname"  >
+						{% for theatre in  theatres %}
+							<tr>
+								<td><strong>{{theatre.Name}}</strong></td>
+							</tr>	
+						{% endfor %}				
+					</table>
+				</td>
+				<td>
+					<table id = "show">
+						<tr>
+							{% for show in shows %}
+								<td id = "time"><a href = "No Of Tickets.php?mid=<?php echo $mid;?>&city=<?php echo $city;?>
+									&time=<?php echo $data['time'];?>&s=<?php echo $data['screen'];?>&date=<?php echo $today;?>">
+										{{show.time}}	
+								</td>
+							{% endfor %}
+						</tr>
+					</table>
+						</td>
+				</tr>	
+		</table>
+	</section>
+		#timetable{
+	   height: 60vh;
+    width: 100%;
+    position: absolute;
+    top: 43%;
+}
+
+
+.cal{
+	width:50%;
+	position: relative;
+    top: -12%;
+    left: -7%;
+}
+#tname{
+	    width: 50%;
+    text-align: center;
+    color: black;
+    text-transform: capitalize;
+    height: 48vh;
+    float: left;
+}
+
+#show{
+	width:50%;
+	height:51vh;
+}
+#time{
+
+}
+#show a{
+	border: 1px solid;
+    padding: 5px;
+    border-radius: 13px;
+	text-transform:uppercase;
+}
+
+	n =  new Date();
+		var month = new Array();
+  month[0] = "Jan";
+  month[1] = "Feb";
+  month[2] = "Mar";
+  month[3] = "Apr";
+  month[4] = "May";
+  month[5] = "Jun";
+  month[6] = "Jul";
+  month[7] = "Aug";
+  month[8] = "Sept";
+  month[9] = "Oct";
+  month[10] = "Nov";
+  month[11] = "Dec";
+		//y = n.getFullYear();
+		m =  month[n.getMonth()];
+		d = n.getDate();
+		document.getElementById("first").innerHTML = d + "</br>" + m ;
+		
+		mm =  month[n.getMonth()];
+		dd = n.getDate()+1;
+		document.getElementById("second").innerHTML = dd + "</br>" + mm ;
+    });
+	
+
+	var URL = "{% url 'Seat_selection'%}";
+        var data = {'count[]':s,'id':'{{show_data.id}}',csrfmiddlewaretoken: '{{ csrf_token }}'};
+        
+        $.post(URL,data);
+         $.ajax({
+
+        url: 'seat_selection/',
+        data : {
+           'count[]':s,
+           'id':'{{show_data.id}}'
+            },
+        success: function(data) {
+            
+             window.location.href = "Book_summary/"+data  
+        }
+    }) 
+
+
+
+
+	{% load static %}
+<html>
+<head>
+	<script>
+	
+	
+	
+	</script>
+</head>
+<body>
+	<div id = "book">
+	
+		<table id = "table" border="1">
+			<tr>
+				<th colspan = "3"><h2>Booking Summary</h2></th>
+			</tr>
+			
+			<tr>
+			<td>
+			screen-
+			</td>
+			<td>
+			  <?php echo $s;?>(<?php echo $noseat;?>&nbsptickets)
+			</td>
+			<td>
+				Rs.<?php echo $price;?>
+			</td>	
+			</tr>
+			<tr>
+				<td colspan = "2">
+					sub total
+				</td>
+			<td>
+			  Rs.<?php echo $total;?>
+			</td>
+			</tr>
+			
+  <tr align = "center">
+  <td colspan = "3">
+  <form action = "payment.php">
+   <input type = "submit" value = "proceed" id = "submit" />
+   </form>
+   </td>
+  <tr>
+
+		</table>
+		
+	</div>
+
+</body>
+</html>
+
+?No_ticket=No_ticket&Seat=seat&total=total&show_data=show_list

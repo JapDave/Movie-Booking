@@ -1,0 +1,99 @@
+{% extends 'admin_side/base.html'%}
+
+{% block title%}
+
+{%endblock %}
+
+{%block content%}
+        <div id="rpanel">
+            <table border="0" align="center" cellspacing="20px">
+	        	<form action="" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                <tr>
+                    <td colspan="3" align="center" id="addmovie">UPDATE MOVIE</td>
+                </tr>
+		
+		
+                <tr>
+                    <td>
+                        Movie Name :
+                    </td>
+                    <td colspan="2">
+                       <input type="text" name="mname" id="mname" value = "{{movies.mname}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Category :
+                    </td>
+                    <td>
+                        <select id="mcategory1" name="mcategory1" value = "{{movies.category}}">
+                            <option>Action</option>
+                            <option>Drama</option>
+                            <option>Horror</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="mcategory2" name="mcategory2" value = "{{movies.category2}}">
+                            <option>Action</option>
+                            <option>Drama</option>
+                            <option>Horror</option>
+                        </select>
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td>
+                        Poster :
+                    </td>
+                    <td colspan="2">
+                        <div id="photo">
+                            <input type="file" name="fn"/>
+                            
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Rate :
+                    </td>
+                    <td colspan="2">
+                        <input type="text" id="rate" name="rate" maxlength="2" value = "{{movies.rate}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Releasing Date :
+                    </td>
+                    <td colspan="2">
+                        <input type="date" id="rdate" name="rdate" value = "{{movies.rdate}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Duration :
+                    </td>
+                    <td>
+                        <input type="text" id="dh" name="dh" placeholder="Hours"/>
+                    </td>
+                    <td>
+                        <input type="text" id="dm" name="dm" placeholder="Minutes"/>
+                    </td>
+                </tr>
+		      <tr>
+		     	<Td>
+			        	Language :
+			       </td>
+			      <td colspan="2">
+				<input type="text" name="lan" id="lag"/value = "{{movies.language}}">
+			     </td>
+	            	</tr>
+		             <tr align="center">
+                    <td colspan="3"><input type="submit" value="UPDATE" id="sbt"/></td>
+                </tr>
+		      </form>
+            </table>
+        </div>
+           
+    
+{%endblock%}

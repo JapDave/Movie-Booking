@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+    <head>
+    <link href="{% static 'admin_side/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
+ <link href = "{% static 'admin_side/scss/style.css'%}" rel="stylesheet">
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background: #222;
+        }    
+    </style>
+    </head>
+    <body>
+        <div id="blackLayer"></div>
+        <div id="main">
+            <div id="form">
+                <table cellspacing="0" border="0">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <tr>
+                            <Td align="center">
+                                <img src="{%static '/admin_side/img/logo.png'%}" height="80px" width="100px" id="logo"/>
+                            </Td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <div id="box1"><i class="fas fa-users" id="uicon"></i><input type="text" id="uid" name="uid"/></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                             <div id="box2"><i class="fas fa-unlock" id="picon"></i><input type="password" id="pass" name="pass"/></div>
+                            </td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input type="submit" value="Log in" id="btn"/>
+                            </td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

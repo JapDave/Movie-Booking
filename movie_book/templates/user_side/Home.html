@@ -1,0 +1,289 @@
+{% load static %}
+<html>
+    <head>
+	<link href="{% static 'admin_side/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
+     <link href = "{% static 'user_side/css/style.css'%}" rel="stylesheet">
+	<script>
+	//$(document).ready(function (){
+		
+		//document.getElementById("city").placeholder = "please select city";
+	//})
+	  function subform(){
+		  var e = document.getElementById("city");
+		 
+	   document.form.submit();
+	  }
+	  
+ function dropdown(){
+	document.getElementById("myDropdown").classList.toggle("show");
+ }
+
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+	</script>
+	
+    </head>
+    <body onload = "myfunction()">
+	<div id = "loading"></div>
+        <div id="main">
+            <div id="menu">
+                <ul>
+                    <li><a href="{%url 'index'%}" class="a1 active">HOME</a></li>
+                    <li><a href="{%url 'Movies'%}">MOVIES</a></li>
+                    <li><a href="Videos.php">VIDEOS</a></li>
+                </ul>
+            </div>
+            <div id="logo">
+                <img src="{%static 'user_side/img/logo.png'%}" height="100%" width="100%"/>
+            </div>
+            <div id="search">
+                <table border="0">
+                    <tr>
+			<td>
+				<a href="Offers.php" id="offers">OFFERS</a>
+			</td>
+			<td>
+				<a href="Gift.php" id="gifts">GIFTS</a>
+			</td>
+                        <td><form  name = "form" action = "" method = "post" >
+							{% csrf_token %}
+					<select id="city" name = "city" onchange = " return subform()" >
+				<option value="" disabled selected>	{% if not city %}
+						location !
+					{% endif %}
+						{{city}}</option>
+				<option value="bhavnagar" >BHAVNAGAR</option>
+				<option value="ahemdabad">AHEMDABAD</option>
+				<option value="baroda">BARODA</option>
+				<option value="surat">SURAT</option>
+				<option value="rajkot">RAJKOT</option>
+				 </select></form></td>
+                        
+				<td>
+                           
+     <div class="dropdown">
+			<img src="{%static 'user_side/img/user icon.png'%}" onclick = "dropdown()" height="30px" width="30px"/class="dropbtn">
+  			 <div id="myDropdown" class="dropdown-content">
+				{% for user in users %}
+				<a href="#">profile</a>
+				<a href="{%url 'User_Logout'%}">Logout</a>
+				{%empty%}
+					
+					<a href="{%url 'User_Login' %}">Login</a>
+    				<a href="{%url 'User_Registration'%}">Register</a>
+					
+				{% endfor %}
+				
+				
+  </div>
+	
+                            
+      </div>                      
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div id="slider">
+            <div>
+                <img src=" {%static 'user_side/img/poster1.jpeg'%}" height="100%" width="100%"/>
+                <img src="{%static 'user_side/img/poster2.jpg'%}" height="100%" width="100%"/>
+                <img src="{%static 'user_side/img/poster3.jpg'%}" height="100%" width="100%"/>
+                <img src="{%static 'user_side/img/poster4.jpg'%}" height="100%" width="100%"/>
+                <img src="{%static 'user_side/img/student of the year 2.jpg'%}" height="100%" width="100%"/>
+                
+            </div>
+        </div>
+        
+	<div id="topm">
+		<table border="0" cellspacing="50px" align="center">
+			<tr>
+				<td colspan="3" align="center" id="topmovietitle">
+					TOP MOVIES
+					 <hr size="2" width="135" color="#94c82f" align="center"/>
+				</td>
+			</tr>
+			<tr>
+					{% for mov in rate  %}
+				<td>
+					<div id="movie1">
+						<div class="circle1">
+                                 <img src="/media/{{mov.poster}}"/>
+						</div>
+						<div class="circle2">
+							<h3>{{mov.mname}}</h3>
+						</div>
+					</div>
+				</td>
+				
+              
+				
+               {% endfor %}
+				
+			</tr>
+		</table>
+	</div>
+
+     
+
+	<div id="nowshow">
+				<table border="0">
+			<tr>
+				
+				<td>
+			<table border="0" id="movietable" cellspacing="50px">
+				<tr  align="center">
+					<td colspan="3" id="nowavailabeltitle">
+NOW AVAILABEL
+					<hr size="2" width="142" color="#94c82f" align="center"/>
+</td>
+					
+				</tr>
+				
+				
+				{% for movie in city_movie %}
+						
+					<td>
+						<div id="box">
+							<div class="poster">
+								<img src="/media/{{movie.poster}}" height="125px" width="300px"/>
+							</div>
+							<div class="postername">
+								<table border="0" cellspacing="10px" width="300px">
+									<tr>
+										<td>
+											{{movie.mname}}
+										</td>
+									</tr>
+									<tr>
+										<td class="lan">
+											{{movie.language}}
+										</td>
+									</tr>
+									<Tr>
+										<td>
+											<div class="action">{{movie.category}}</div>
+											<div class="drama">	{{movie.category2}}</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						<a href="{%url 'Book_show' id=movie.id%}"><!--pass city and movie id-->
+							<div class="buttons">
+								BOOK NOW
+							</div>
+						</a>
+						</div>
+					</td>
+
+					
+						{% if forloop.counter|divisibleby:3%}
+							
+							<tr></tr>
+					
+					{% endif %}
+				{% endfor %}
+					
+							
+					</tr>
+			
+			</table>
+
+				</td>
+				<td id="lpaneltd" valign="top">
+				<div id="lpanel">
+				<div id="topmovies">TOP MOVIES</div>
+				<div id="region">IN YOUR REGION</div>
+				<table border="0" width="300px">
+				{% for rate in rate_city %}
+					
+						{% if forloop.counter < 3 %}
+						<tr>				
+							<td class="heart" align="right" width="50px">&hearts;</td>
+							<td class="per" align="center" width="50px">{{rate.0}}%</td>
+							<td class="mname" align="left" width="200px">{{rate.1}}</td>
+
+						
+						</tr>
+						
+						{% endif %}
+					
+				
+				
+				{% endfor %}
+									
+				  			
+				</table>
+
+
+			</div>
+
+				</td>
+				
+			</tr>
+		</table>
+	</div>
+	<div id="fottor">
+		<table border="0" width="100%">
+			<tr align="center">
+				<td>
+					<div id="flogo">
+             				   <img src="{%static 'user_side/img/logo.png'%}" height="100%" width="100%"/>
+         				</div>
+				</td>
+				<td>
+					<ul id="fmenu">
+						<li><a href="Home.php"/> HOME</li><br>
+						<li><a href="Movies.php" />MOVIES</li><br>
+						 <li><a href="Videos.php" />VIDEOS</li>	<br>
+						<li>2021</li><br>
+						<li>OFFERS</li><br>
+						<li>GIFTS</li><br>
+				
+					</ul>
+				</td>
+				<td>
+					<table border="0">
+						<tr align="center">
+							<td colspan="3" id="follow">
+								FOLLOW US
+							</td>
+						</tr>
+						<tr>
+							<td>	
+								<i class="fab fa-instagram" style="font-size:48px;color:red"></i>
+							</td>
+							<td>	
+							<i class="fab fa-facebook" style="font-size:48px;color:blue"></i>
+							</td>
+							<td>	
+						<i class="fab fa-twitter" style="font-size:48px;color:white"></i>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	 <script>
+     var preloading = document.getElementById('loading');
+      function myfunction(){
+		  preloading.style.display = 'none';
+	  }
+   
+   </script>
+    </body>
+</html>

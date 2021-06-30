@@ -1,0 +1,447 @@
+#form{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border:3px solid white;
+    border-radius: 15px;
+    padding: 30px;
+}
+#box1,#box2{
+    height: 40px;
+    width: 240px;
+    background-color:#94c82f;
+    border: 1px solid white;
+    margin: 0px;
+}
+#box1{
+    border-radius: 2px 2px 0px 0;
+    margin-bottom: -4px;
+}
+#box2{
+    border-radius: 0px 0px 2px 2px;
+}
+#uicon{
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+#uid{
+    height: 30px;
+    width: 200px;
+    display: inline-block;
+    float: left;
+    margin:5px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+}
+
+#picon{
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+#pass{
+    height: 30px;
+    width: 200px;
+    display: inline-block;
+    float: left;
+    margin:5px;
+    border: none;
+    background: transparent;
+    outline: none;
+    color: white;
+}
+#btn{
+    height: 30px;
+    width: 150px;
+    margin-top: 20px;
+    border: none;
+    background-color:#f2e4ba;
+    outline:none;
+    border-radius: 2px;
+    font-family: arial;
+    font-size: 15px;
+}
+#logo{
+    transform: rotate(-10deg);
+    margin-bottom: 40px;
+}
+#main{
+    height: 100vh;
+    width: 100%;
+    background-image: url('upcoming-Bollywood-movies-of-2017.jpg');
+    background-size: 100% 100%;
+}
+#blackLayer{
+    height: 100vh;
+    width: 100%;
+    background-color: #222;
+    position: absolute;
+    opacity: .95;
+}
+#rpanel{
+    width: calc(100% - 100px);
+    height: 100vh;
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform:translate(-45%,-20%);
+}
+#rpanel table{
+    margin-top: 30px;
+    font-family: arial;
+    font-size: 16px;
+    color:#222;
+    border: 3px solid #03384b;
+    border-radius: 10px;
+}
+
+#addmovie{
+    font-family: arial;
+    font-size: 25px;
+}
+ #rate{
+    height: 30px;
+    width: 325px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#mid{
+    height: 30px;
+    width: 325px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#rdate{
+    height: 30px;
+    width: 325px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#dh{
+    height: 30px;
+    width: 100px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#dm{
+    height: 30px;
+    width: 100px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#sbt{
+    height: 35px;
+    width: 100px;
+    border: none;
+    outline: none;
+    font-family: arial;
+    font-size: 14px;
+    background-color: white;
+    border-radius: 35px;
+    border: 3px solid #03384b;
+}
+  #mname{
+    height: 30px;
+    width: 325px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+
+
+#mcategory1{
+     height: 30px;
+    width: 100px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#mcategory2{
+     height: 30px;
+    width: 100px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#photo{
+display: inline-block;
+width: 323px;
+height: 30px;
+margin: 0px;
+padding: 0px;
+background-color: white;
+border: 3px solid #03384b;
+z-index: -1;
+}
+
+#photo > input[type="file"]{
+float: left;
+width: 100%;
+height: 100%;
+margin: 0px;
+padding: 0px;
+cursor: pointer;
+position: relative;
+z-index: 4;
+opacity: 0;
+top:0;
+}
+#photo > span{
+position: relative;
+top:-25;
+left: 5;
+margin: 0px;
+font-family: arial;
+font-size: 16px;
+color:black;
+
+}
+#photo:before{
+position: relative;
+top:0px;
+left: 5;
+padding: 0px;
+content: '';
+font-size: 24px;
+font-family: 'Ionicons';
+color:gray;
+}
+#lag{
+height: 30px;
+    width: 325px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+.MultiCheckBox {
+border:1px solid #e2e2e2;
+padding: 5px;
+border-radius:4px;
+cursor:pointer;
+}
+
+.MultiCheckBox .k-icon{ 
+font-size: 15px;
+float: right;
+font-weight: bolder;
+margin-top: -7px;
+height: 10px;
+width: 14px;
+color:#787878;
+} 
+
+.MultiCheckBoxDetail {
+display:none;
+position:absolute;
+border:1px solid #e2e2e2;
+overflow-y:hidden;
+background-color:black;
+color:white;
+}
+
+.MultiCheckBoxDetailBody {
+overflow-y:scroll;
+}
+
+.MultiCheckBoxDetail .cont  {
+    clear:both;
+    overflow: hidden;
+    padding: 2px;
+}
+
+.MultiCheckBoxDetail .cont:hover  {
+    background-color:#cfcfcf;
+}
+
+.MultiCheckBoxDetailBody > div > div {
+    float:left;
+}
+
+.MultiCheckBoxDetail>div>div:nth-child(1) {
+
+}
+
+.MultiCheckBoxDetailHeader {
+overflow:hidden;
+position:relative;
+height: 28px;
+background-color:#3d3d3d;
+}
+
+.MultiCheckBoxDetailHeader>input {
+    position: absolute;
+    top: 4px;
+    left: 3px;
+}
+
+.MultiCheckBoxDetailHeader>div {
+    position: absolute;
+    top: 5px;
+    left: 24px;
+    color:#fff;
+}
+
+#video{
+    display: inline-block;
+    width: 323px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    border: 3px solid #03384b;
+    z-index: -1;
+}
+
+#video > input[type="file"]{
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    position: relative;
+    z-index: 4;
+    opacity: 0;
+    top:0;
+}
+#video > span{
+   position: relative;
+    top:-25;
+    left: 5;
+    margin: 0px;
+    font-family: arial;
+    font-size: 16px;
+    color:black;
+    
+}
+#video:before{
+   position: relative;
+    top:0px;
+    left: 5;
+    padding: 0px;
+    content: '';
+    font-size: 24px;
+    font-family: 'Ionicons';
+    color:gray;
+}
+#vid{
+    height: 30px;
+    width: 325px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    font-family: arial;
+    font-size: 16px;
+    border: 3px solid #03384b;
+}
+#box{
+    height:275px;
+    width:300px;
+    background-color:white;
+    margin:10px;
+}
+#nowshow{
+    padding-top:100px;
+}
+
+.poster{
+    height:125px;
+    width:300px;
+
+}
+.lan{
+    font-size:10px;
+    color:gray;
+}
+.action{
+    font-size:10px;
+    border:1px solid gray;
+    width:50px;
+    text-align:center;
+    border-radius:10px;
+    color:gray;
+    display:inline-block;
+}
+.drama{
+    font-size:10px;
+    border:1px solid gray;
+    width:50px;
+    text-align:center;
+    border-radius:10px;
+    color:gray;
+    margin-left:10px;
+    display:inline-block;
+}
+.buttons{
+    height:50px;
+    width:300px;
+    background-color:#94c82f;
+    color:white;
+    font-size:14px;
+    text-align:center;
+    line-height:50px;
+}
+.postername{
+    height:100px;
+    width:300px;
+    text-transform: capitalize;
+}
+#movietable{
+    margin-top:10px;
+    margin-right:-50px;
+    margin-left:30px;
+    font-family:arial;
+}
+#nowavailabeltitle{
+    font-family:arial;
+    font-size:15px;
+    color:rgb(0, 0, 0);
+}
+.movietd img{
+    height: 249px;
+    width: 52%; 
+}
+.hfield{
+    height: 40px;
+    width: 150px;
+    background-color: white;
+    text-align: center;
+}

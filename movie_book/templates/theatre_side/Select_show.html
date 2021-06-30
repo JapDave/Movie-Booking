@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+<head>
+<style>
+.body{
+	margin:0px;
+	
+}
+	#date{
+		color::black;
+	}
+	#time{
+		color: black;
+	}
+	#screen{
+		color: black;
+	}
+	#tform{
+		text-align: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+	height: 30%;
+    width: 30%;
+	}
+
+</style>
+</head>
+<body>
+		<div>
+				
+				<table border :1px solid black id = "tform">
+				<form method = "POST">	
+						{% csrf_token %}
+						<tr><td >DATE: &nbsp &nbsp &nbsp
+							<input type = "date" name = "date" id = "date"></td>
+						</tr>
+						<tr><td>SHOW TIME: &nbsp &nbsp &nbsp
+						<input type = "time" name = "time" id = "time"></td>
+						</tr>	
+						<tr><td>SCREEN:  &nbsp &nbsp &nbsp	
+							<input type ="number" name = "screen" id = "screen"></td>
+						</tr>	
+						<tr><td>price:  &nbsp &nbsp &nbsp	
+							<input type ="integer" name = "price" id = "price"></td>
+						</tr>	
+					    <tr ><td><input type = "submit" value = "submit"></td></tr>
+					
+					
+				</form>
+					</table>
+				
+		</div>
+
+</body>

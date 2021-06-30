@@ -1,0 +1,142 @@
+{% load static %}
+
+<html>
+    <head>
+        <style>
+            body{
+                margin: 0px;
+                padding: 0px;
+                background-color: whitesmoke;
+            }
+		
+        </style>
+<link href = "{% static 'theatre_side/css/style.css'%}" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ <script src="jquery-1.10.2.min.js"></script>
+<script>
+function dropdown(){
+	document.getElementById("myDropdown").classList.toggle("show");
+ }
+
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>       
+    </head>
+    <body onload = "myfunction()">
+	<div id = "loading"></div>
+        <div id="lpanel">
+            <div id="logo"><img src="{%static 'user_side/img/logo.png'%}" height="100%" width="100%"/></div>
+            <div id="menu">
+			<div id = "tname">
+                	<div class="dropdown">
+					<img src="{%static 'user_side/img/user icon.png'%}" onclick = "dropdown()" height="30px" width="30px"/class="dropbtn">
+  						 <div id="myDropdown" class="dropdown-content">
+				
+									<a href="#">profile</a>
+									<a href="{%url 'Theatre_Logout'%}">Logout</a>
+		
+ 						  </div>
+					</div>   
+			</div>
+                <ul>
+                    <li id = "tname">{{theatre}}</li>
+                   
+                    <li><a href="thome.php">HOME</a></li>
+                    
+                    <li id="mtrailer"><a href = "tVideos.php">TRAILER</a></li>
+                   
+                    <li id="mreports">REPORTS</li>
+					<li id = "ucity">{{theatre.city}}</li>
+                   
+					
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div id="submenu5">
+                <ul>
+                    <li><a href="reportuser.php">USERS</a></li>
+                    <li><a href="reportMenu.php">MOVIES</a></li>
+                  
+                </ul>
+        </div>
+        <div>
+		
+			<table border="0" id="movietable" cellspacing="50px"align = "center">
+				<tr  align="center">
+					<td colspan="3" id="nowavailabeltitle">
+                           NOW AVAILABEL
+					<hr size="2" width="142" color="#94c82f" align="left"/>
+</td>
+					
+				</tr>
+                    {% for movie in movies %}
+				
+					<td>
+						<div id="box">
+							<div class="poster">
+								<img src="/media/{{movie.poster}} ?>" height="125px" width="300px"/>
+							</div>
+							<div class="postername">
+								<table border="0" cellspacing="10px" width="300px">
+									<tr>
+										<td>
+								        {{movie.mname}}
+                                    </td>
+									</tr>
+									<tr>
+										<td class="lan">
+                                            {{movie.language}}
+										</tD>
+									</tr>
+									<Tr>
+										<td>
+											<div class="action">{{movie.category}}</div>
+											<div class="drama">{{movie.category2}}</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						<a href="{%url 'Add_show' id=movie.id%}">
+							<div class="buttons">
+								SELECT SHOW 
+							</div>
+						</a>						
+						</div>
+					</td>
+                       	{% if forloop.counter|divisibleby:3%}
+							
+							<tr></tr>
+					
+					{% endif %}
+				{% endfor %}
+					 
+									
+							
+					</tr>
+			
+			</table>
+		
+		<div>
+        <a href=""><div id=""></div></a>
+		 <script>
+     var preloading = document.getElementById('loading');
+      function myfunction(){
+		  preloading.style.display = 'none';
+	  }
+   
+   </script>
+    </body>
+</html>

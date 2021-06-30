@@ -1,0 +1,76 @@
+{% extends 'admin_side/base.html' %}
+
+{% block title%}
+
+{%endblock %}
+
+{%block content%}
+
+                <!--  main content -->
+				<div id="nowshow">
+				<table border="0">
+			<tr>
+				<td>
+				<table border="0" id="movietable" cellspacing="50px"align = "center">
+				<tr  align="center">
+					<td  id="nowavailabeltitle">
+                    NOW AVAILABEL
+					<hr size="2" width="142" color="#94c82f" align="left"/>
+            	</td>
+					
+				</tr>
+				
+					<!--- for loop and fetch-->
+				{%for movie in movies %}
+
+					 <td>
+						<div id="box">
+							<div class="poster">
+								<img src= "/media/{{movie.poster}}" height="125px" width="300px"/>
+							</div>
+							<div class="postername">
+								<table border="0" cellspacing="10px" width="300px">
+									<tr>
+										<td>
+                                           {{movie.mname}}
+                                		</td>
+									</tr>
+									<tr>
+										<td class="lan">
+                                          {{movie.language}}
+										</tD>
+									</tr>
+									<Tr>
+										<td>
+											<div class="action">{{movie.category}}</div>
+											<div class="drama">{{movie.category2}}</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+						<a href="{%url 'objD' did=movie.id %}">
+							<div class="buttons">
+								DELETE MOVIE 
+							</div>
+						</a>
+						</div>
+					</td>
+					
+						{% if forloop.counter|divisibleby:3%}
+							
+							<tr></tr>
+					
+					{% endif %}
+				{% endfor %}
+					  
+					 
+											
+					</tr>	
+			</table>
+			</td>
+			</tr>	
+		</table>
+	</div>	
+                      <!-- end main  content -->
+		
+  {%endblock%}     

@@ -1,0 +1,104 @@
+<html>
+<head>
+<style>
+
+table {
+	
+	margin-left:350px;
+	align:center;
+	margin-top:15%;
+	height:100px;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th, td {
+	color:#94c82f;
+            text-shadow:0px 0px 10px #94c82f;
+            text-decoration: none;
+	background-color:white;
+ 
+  height:90px;
+  padding: 2px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+body{
+        margin: 0;
+		background-color:#222;
+		background:url('new ticket.jpg');
+		background-size:100% 100%; 
+        
+}
+
+#submit a
+{
+	background-color:transparent;
+	color:#94c82f;
+    text-shadow:0px 0px 10px #94c82f;
+    text-decoration: none;
+	text-align: center;
+ 
+}
+#ab
+{
+	height: 100%;
+    width: 100%;
+    background-color: transparent;
+    //opacity: 0.5;
+    position: absolute;
+    z-index: -1;	
+}
+
+</style>
+
+</head>
+<body >
+  <div id="ab">
+<!--		<img src="new ticket.jpg">-->
+  </div>
+	<div id = "book" >
+	{% for show in show_data %}
+		<table id = "table" border="1" >
+			<tr>
+				<th colspan = "4"><h2 style="text-align:center;"> Booking Summary</h2></th>
+			</tr>
+			
+			<tr>
+			<td>
+			<h2 style="background-color:black; text-align:center;">screen</h2><h4 style=" text-align:center;">{{show.screen}}<h4>
+			</td>
+			<td>
+			  <h2 style="background-color:black; text-align:center;">seat no </h2> <h4 style=" text-align:center;">{{Seat}}</h4>  </td>
+			  <td> <h2 style="background-color:black; text-align:center;">number of ticket </h2>  <h4 style=" text-align:center;">{{No_ticket}}</h4>
+			</td>
+			<td>
+				 <h2 style="background-color:black; text-align:center;">Rs.</h2><h4 style=" text-align:center;">{{show.price}}</h4>
+			</td>	
+			</tr>
+			<tr>	 
+				<td colspan = "3" style="text-align:center; margin-top:10px;">
+					<h1 style=" margin-top:10px;">SUB TOTAL<h1>
+				</td>
+			<td>
+			  <h4 style=" text-align:center;">{{total}}</h4> 
+			</td>
+			</tr>
+			
+  <tr align = "center">
+  <td colspan = "4">
+  <div id ="submit"><a href = "{%url 'payment'%}?No_ticket={{No_ticket}}&Seat={{Seat}}&total={{total}}&show_data={{show.id}}" >Submit</a></div>
+   </td>
+  <tr>
+
+		</table>
+	{% endfor %}
+	</div>
+
+</body>
+</html>
